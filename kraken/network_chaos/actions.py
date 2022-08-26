@@ -12,6 +12,7 @@ import kraken.node_actions.common_node_functions as common_node_functions
 
 # Reads the scenario config and introduces traffic variations in Node's host network interface.
 def run(scenarios_list, config, wait_duration):
+    import pdb;pdb.set_trace()
     failed_post_scenarios = ""
     logging.info("Runing the Network Chaos tests")
     for net_config in scenarios_list:

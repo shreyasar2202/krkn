@@ -20,9 +20,11 @@ def initialize_clients(kubeconfig_path):
     global api_client
     global dyn_client
     global custom_object_client
+    
     try:
         config.load_kube_config(kubeconfig_path)
         cli = client.CoreV1Api()
+        print(type(cli))
         batch_cli = client.BatchV1Api()
         watch_resource = watch.Watch()
         api_client = client.ApiClient()
@@ -222,6 +224,7 @@ def exec_cmd_in_pod(command, pod_name, namespace, container=None, base_command="
 
 
 def delete_pod(name, namespace):
+    
     try:
         cli.delete_namespaced_pod(name=name, namespace=namespace)
         while cli.read_namespaced_pod(name=name, namespace=namespace):

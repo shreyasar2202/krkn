@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../plugin.schema.json
+- id: network_chaos
+  config: 
+    node_interface_name: needed
+    # node_interface_name: 
+    #   kind-control-plane: 
+    #     - wlp0s20f3
+    kubeconfig_path: /root/.kube/config
+    execution_type: parallel
+    network_params:
+        latency: 50ms                    # 50ms
+        loss: '0.02'                       # percentage
+        bandwidth: 100mbit
